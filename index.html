@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<!--
+	Why Hello! Abe here! :)
+	This site is a heavily edited version of Prologue by HTML5 UP.
+	Original template and credit goes to html5up.net | @ajlkn
+	Free for personal and commercial use under thse CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Abraham Sylvestre</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/new-styles.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<link rel="stylesheet" href="assets/css/cocoen.min.css" />
+		
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollzer.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/jquery.visible.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/cocoen.min.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				
+				$(window).scroll(function(e) {
+					e.preventDefault();
+					
+					$(".left article").each(function(i, el) {
+						var el = $(el);
+						if (el.visible(true) && !$(this).hasClass('scroll-left')) {
+							$(this).removeClass('return-left');
+							$(this).addClass('scroll-left');
+						}
+						
+						if (!el.visible(true) && $(this).hasClass('scroll-left')) {
+							$(this).removeClass('scroll-left');
+							$(this).addClass('return-left');
+						}
+					});
+					
+					$(".right article").each(function(i, el) {
+						var el = $(el);
+						if (el.visible(true) && !$(this).hasClass('scroll-right')) {
+							$(this).removeClass('return-right');
+							$(this).addClass('scroll-right');
+						}
+						
+						if (!el.visible(true) && $(this).hasClass('scroll-right')) {
+							$(this).removeClass('scroll-right');
+							$(this).addClass('return-right');
+						}
+					});
+					
+				});
+				
+				var screenDrag = false;
+				$("body").on('touchmove', function() {
+					screenDrag = true;
+				});
+				
+				$(".modal-trigger").on('click touchend', function(e) {
+					e.preventDefault();
+					if (screenDrag) {
+						screenDrag = false;
+						return;
+					}
+					
+					$("div.background").css('display', 'block');
+					$("#overlay").css('display', 'block');
+					$("#main-content, #headerToggle").removeClass('fade-in').addClass('fade-out');
+					
+					// Get the requested modal
+					var modalSelector = $(this).attr('target-modal');
+					$(modalSelector).css('display', 'block');
+					$(modalSelector).removeClass('fade-out').addClass('fade-in');
+					
+					// If the modal uses Cocoen
+					if (modalSelector == "#portfolio2-modal") {
+						$(".cocoen").cocoen();
+					}
+					
+				});
+				
+				$("#overlay").on('click touchend', function(e) {
+					e.preventDefault();
+					$("div.background").css('display', 'none');
+					$("#overlay").css('display', 'none');
+					$("#main-content, #headerToggle").removeClass('fade-out').addClass('fade-in');
+					$(".modal").removeClass('fade-in').addClass('fade-out').css('display', 'none');
+				});
+				
+				$(".fa-times").on('click touchend', function(e) {
+					e.preventDefault();
+					$("#overlay").click();
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		
+		<video playsinline autoplay muted loop poster="images/banner.jpg" class="bgvid">
+			<source src="images/particle-stream.webm" type="video/webm">
+		</video>
+		<div id="overlay" class="overlay"></div>
+		
+		<div id="main-content" class="">
+		
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/elephant-texture.jpg" alt="" /></span>
+							<h1 id="title">Abraham Sylvestre</h1>
+							<p>Web Developer</p>
+							<p>Aspiring Full-Stack Developer</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portfolio</span></a></li>
+								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/abesylvestre" class="icon fa-linkedin"><span class="label">Dribbble</span></a></li>
+							<li><a href="https://github.com/AbeSylvestre" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="mailto:abraham.sylvestre@gmail.com?Subject=Hey%20Abe!" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Welcome! I'm Abraham.</h2>
+								<p>Front-end/Web Developer</br>
+								Aspiring Full-Stack Developer</p>
+							</header>
+
+							<footer>
+								<a href="#portfolio" class="button scrolly">Let's Get Started</a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="portfolio" class="two portfolio">
+						<div class="container">
+
+							<header>
+								<h2>Portfolio</h2>
+							</header>
+
+							<p>Here are some of my most recent projects and clients. </p>
+
+							<div class="row">
+								<div class="6u 12u$(mobile) left">
+									<article class="item modal-trigger" target-modal="#portfolio2-modal">
+										<a href="javascript:;" class="sliding-image fit"><img src="images/Portfolio_2.png" alt="" /></a>
+										<header>
+											<h3>Portfolio 2.0</h3>
+										</header>
+									</article>
+									<article class="item modal-trigger" target-modal="#galderma-modal">
+										<a href="javascript:;" class="sliding-image fit"><img src="images/LogoGalderma_forPR.png" alt="" /></a>
+										<header>
+											<h3>Galderma S.A.</h3>
+										</header>
+									</article>
+									<article class="item modal-trigger" target-modal="#solarsystem-modal">
+										<a href="javascript:;" class="sliding-image fit"><img src="images/Solar_System pic.PNG" alt="" /></a>
+										<header>
+											<h3>Getting to know our Solar System</h3>
+										</header>
+									</article>
+								</div>
+								<div class="6u$ 12u$(mobile) right">
+									<article class="item modal-trigger" target-modal="#dendreon-modal">
+										<a href="javascript:;" class="sliding-image fit"><img src="images/DendreonLogo.png" alt="" /></a>
+										<header>
+											<h3>Dendreon</h3>
+										</header>
+									</article>
+									<article class="item modal-trigger" target-modal="#csfpa-modal">
+										<a href="javascript:;" class="sliding-image fit"><img src="images/CSFSplash.png" alt="" /></a>
+										<header>
+											<h3>CSFPA</h3>
+										</header>
+									</article>
+									<article class="item modal-trigger" target-modal="#portfolio1-modal">
+										<a href="javascript:;" class="sliding-image fit"><img src="images/PortfolioLogo.png" alt="" /></a>
+										<header>
+											<h3>Portfolio 1.0</h3>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+			
+
+				<!-- About Me -->
+					<section id="about" class="about three">
+						<div class="container">
+
+							<header>
+								<h2>About Me</h2>
+							</header>
+
+							<img src="images/Self-Portrait.png" class="portrait"/>
+
+							<p>Other than thinking of new dad jokes, nothing excites me quite like programming. Immersing myself from my software
+							background into the world of front-end, I work as a junior web developer building anything from responsive SPAs to full mobile apps.</p>
+							
+							<h3>Skills</h3>
+							<p>Experience with <i class="fa fa-lightbulb-o" aria-hidden="true"></i> LAMP stacks</p>
+							<table class="skills-table">
+								<tr class="header-row">
+									<td>Libraries</td>
+									<td>Languages</td>
+									<td>Frameworks</td>
+								</tr>
+								<tr>
+									<td>Jquery</td>
+									<td>HTML5</td>
+									<td>Bootstrap</td>
+								</tr>
+								<tr>
+									<td>Jquery UI</td>
+									<td>CSS3</td>
+									<td>Laravel 5</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>JavaScript</td>
+									<td>Cordova</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>SQL</td>
+								</tr>
+							</table>
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four contact">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p>Interested in hiring? You can fill out the form below or connect a number of other ways!</p>
+
+							<form method="post" action="contact_form.php" name="contact_form" autocomplete="on">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</section>
+			
+		</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; All rights reserved.</li><li>Altered Design from <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+		</div>
+		
+		<!--Modals -->
+		<div id="portfolio2-modal" class="portfolio2-modal modal">
+			<i class="fa fa-times" aria-hidden="true"></i>
+			<h3>Portfolio 2.0</h3>
+			<div class="cocoen slider">
+				<img src="images/Portfolio_1.png" />
+				<img src="images/Portfolio_2.png" />
+			</div>
+			<p class="caption">Use the slider to compare versions!</p>
+			<div class="modal-text">
+				<p>After gaining further experience in the professional world, I wanted to make a major design update
+				to my website, but lacked the time to create a fully responsive SPA from scratch. Finding a simple
+				HTML5 template, I added a few personal touches to make it my own.</p>
+			</div>
+			<a href="#" class="modal-link"><h4>View GitHub</h4></a>
+		</div>
+		
+		<div id="galderma-modal" class="galderma-modal modal">
+			<i class="fa fa-times" aria-hidden="true"></i>
+			<h3>Galderma S.A.</h3>
+			<img src="images/LogoGalderma_forPR.png" />
+			<div class="modal-text">
+				<p>Galderma S.A. needed two single-page applications (SPAs) fast to serve as visual aids for their upcoming and newly arrived products.
+				Both SPAs needed to be completed within 30 hours and function fluidly on the iPad, it's intended environment. These conditions
+				were successfully met (without coffee).</p>
+				<h4 class="disclaimer">Any code or images of these projects is Galderma proprietary.</h4>
+			</div>
+		</div>
+		
+		<div id="solarsystem-modal" class="solarsystem-modal modal">
+			<i class="fa fa-times" aria-hidden="true"></i>
+			<h3>Getting to know our Solar System</h3>
+			<img src="images/Solar_System pic.PNG" />
+			<div class="modal-text">
+				<p>Turning one of my greatest interests in college into a webpage, this was a fun, fast little side project
+				giving an overview of our solar system.</p>
+			</div>
+			<a href="https://github.com/AbeSylvestre/Solar-System" class="modal-link"><h4>View GitHub</h4></a>
+			<a href="http://abrahamsylvestre.com/SolarSystem/solarsystem.html" class="modal-link webpage"><h4>View Webpage</h4></a>
+		</div>
+		
+		<div id="dendreon-modal" class="dendreon-modal modal">
+			<i class="fa fa-times" aria-hidden="true"></i>
+			<h3>Dendreon</h3>
+			<img src="images/Dendreon_Gray.png" />
+			<div class="modal-text">
+				<p>Dendreon, now Valeant Pharmaceuticals, filmed a set of introductory videos for their PROVENGE&reg; (sipuleucel-T) treatment, but
+				desired an application to track and ensure practitioners completed their training. In collaboration with M3 Health Inc., I provided
+				a mobile solution.</p>
+				<h4 class="disclaimer">Any code or images of this project is Dendreon proprietary.</h4>
+			</div>
+		</div>
+		
+		<div id="csfpa-modal" class="csfpa-modal modal">
+			<i class="fa fa-times" aria-hidden="true"></i>
+			<h3>CSFPA</h3>
+			<img src="images/CSFSplash.png" />
+			<div class="modal-text">
+				<p>The Christian Student Foundation of Pennsylvania needed a mobile app designed to give students a variety of updates
+				that they can quickly access on their phones. With a very limited budget, I developed a cross platform solution using Phonegap and Jquery Mobile.</p>
+			</div>
+			<a href="https://github.com/AbeSylvestre/CSFapp" class="modal-link"><h4>View GitHub</h4></a>
+		</div>
+		
+		<div id="portfolio1-modal" class="portfolio1-modal modal">
+			<i class="fa fa-times" aria-hidden="true"></i>
+			<h3>Portfolio 1.0</h3>
+			<img src="images/Portfolio_1.png" />
+			<div class="modal-text">
+				<p>My undergraduate portfolio during my early days was in need of a major makeover, in both design and simplicity.
+				This new website was made to better reflect my career.</p>
+			</div>
+			<a href="https://github.com/AbeSylvestre/Portfolio" class="modal-link"><h4>View GitHub</h4></a>
+		</div>
+
+	</body>
+</html>
